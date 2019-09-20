@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ApiService } from './home/api.service';
 import {HttpModule} from '@angular/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -14,6 +15,8 @@ import {HttpModule} from '@angular/http';
     HomeComponent
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     BrowserModule,
     AppRoutingModule

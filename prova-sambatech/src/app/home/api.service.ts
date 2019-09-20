@@ -22,7 +22,7 @@ export class ApiService{
         if(query.charAt(i).includes(' ')){
             nome = nome + "+";
         }else{
-            nome = nome + nome;
+            nome = nome + query.charAt(i);
         }
     }
 
