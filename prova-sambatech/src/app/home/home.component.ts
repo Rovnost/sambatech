@@ -12,7 +12,8 @@ import { FormGroup,FormControl, Validators} from '@angular/forms';
 export class HomeComponent implements OnInit {
 
   conteudoDiv = [];
-  
+  buscaAtiva = false;
+
   constructor(private pesquisaService: ApiService) { }
 
   ngOnInit() {
@@ -35,6 +36,7 @@ export class HomeComponent implements OnInit {
 
   replaceDiv(dados){
     console.log(dados);
+    this.buscaAtiva = true;
     this.conteudoDiv = dados;
   }
 

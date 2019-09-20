@@ -1,15 +1,29 @@
-<div class="pesquisa">
-  <img class="logo" src="https://logodownload.org/wp-content/uploads/2017/07/breaking-bad-logo.png" alt="image">
-  <form [formGroup]="pesquisaForm" name="searchForm">
-      <input type="" (keydown.enter)="pesquisarPersonagem()" formControlName="pesquisa" class="barraPesquisar" placeholder="Pesquise os personagens" ng-model="search" />
-    </form>
+<div class="padding-100">
+  <div>
+    <img class="logo" src="https://logodownload.org/wp-content/uploads/2017/07/breaking-bad-logo.png" alt="image">
+  </div>
+  <div class="pesquisa">
+    <form [formGroup]="pesquisaForm" name="searchForm">
+        <input type="" (keydown.enter)="pesquisarPersonagem()" formControlName="pesquisa" class="barraPesquisar" placeholder="Pesquise os personagens" ng-model="search" />
+      </form>
+  </div>
 </div>
 
-<div class="row property-content">
+<h3 class="color-white padding-left-100" *ngIf="!buscaAtiva">Personagens</h3>
+<h3 class="color-white padding-left-100" *ngIf="buscaAtiva">Você pesquisou por "{{this.pesquisaForm.value.pesquisa}}"</h3>
+
+<div class="row property-content padding-div">
   <div class="col-sm-6 col-md-4 mt-5 max-width-19" *ngFor="let personagem of conteudoDiv">
     <div class="card">
-      <img (click)="" class="img-fluid capaPersonagem" src="{{personagem.img}}" alt="Character Cover Not Available" />
+      <img class="img-fluid capaPersonagem" src="{{personagem.img}}" alt="Character Cover Not Available" />
     </div>
+    <h4 class="color-white">{{personagem.name}}</h4>
+    <span class="color-white">{{personagem.birthday}}</span>
+    <!-- <div *ngIf="personagem.occupation.lenght > 1">
+        <span>{{personagem.occupation[1]}}</span>
+    </div> -->
+    <p class="color-white">{{personagem.occupation[0]}}</p>
+
   </div>
 
 </div>

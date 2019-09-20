@@ -42,3 +42,21 @@
   .max-width-19{
     max-width: 19% !important;
   }
+
+  .padding-100{
+    padding: 100px;
+  }
+
+  .color-white{
+      color: white;
+  }
+
+  .padding-left-100{
+      padding-left: 100px;
+  }
+
+  .padding-div{
+    padding-right: 100px;
+    padding-bottom: 100px;
+    padding-left: 100px;
+  }
