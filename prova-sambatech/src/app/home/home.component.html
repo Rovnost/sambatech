@@ -7,6 +7,7 @@
 
 <h3 class="color-white padding-left-100" *ngIf="!buscaAtiva">Personagens</h3>
 <h3 class="color-white padding-left-100" *ngIf="buscaAtiva">Você pesquisou por "{{this.pesquisaForm.value.pesquisa}}"</h3>
+<h1 *ngIf="semResultados" class="color-white padding-left-100 margin-top-40">Nada foi encontrado :(</h1>
 
 <div class="row property-content padding-div">
   <div class="col-sm-6 col-md-4 mt-5 max-width-19" *ngFor="let personagem of conteudoDiv">
@@ -27,8 +28,8 @@
 
 </div>
 
-<div>
-    <button *ngIf="paginaAtual > 1" mat-raised-button (click)="voltarPagina()" class="botao-voltar"><i class="material-icons seta-voltar">arrow_back</i>Anterior</button>
-    <span class="margin-left-35pct color-white"><a>1 </a><a>2 </a><a>3 </a><a>4 </a><a>5 </a><a>6 </a></span>
+<div *ngIf="!buscaAtiva">
+    <button *ngIf="botaoAnterior()" mat-raised-button (click)="voltarPagina()" class="botao-voltar"><i class="material-icons seta-voltar">arrow_back</i>Anterior</button>
+    <span [ngClass]="{'margin-left-41pct': botaoAnterior(), 'margin-left-50pct': !botaoAnterior()}"><a [ngClass]="{'sublinhado': paginaAtual === 1}" (click)="pagina1()">1 </a><a [ngClass]="{'sublinhado': paginaAtual === 2}" (click)="pagina2()">2 </a><a [ngClass]="{'sublinhado': paginaAtual === 3}" (click)="pagina3()">3 </a><a [ngClass]="{'sublinhado': paginaAtual === 4}" (click)="pagina4()">4 </a><a [ngClass]="{'sublinhado': paginaAtual === 5}" (click)="pagina5()">5 </a><a [ngClass]="{'sublinhado': paginaAtual === 6}" (click)="pagina6()">6 </a></span>
     <button *ngIf="paginaAtual != 6" mat-stroked-button (click)="proximaPagina()" class="botao-proximo">Próximo<i class="material-icons seta-proximo">arrow_forward</i></button>
   </div>
