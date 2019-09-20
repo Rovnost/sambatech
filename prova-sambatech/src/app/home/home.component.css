@@ -77,9 +77,18 @@
     margin-right: 10px !important;
   }
 
+  .status-presumesemorto{
+    margin-top: 35px;
+    margin-left: 77px;
+    position: absolute;
+    color: white;
+    background: red;
+    border-radius: 2px;
+  }
+
   .status-morto{
     margin-top: 35px;
-    margin-left: 97px;
+    margin-left: 163px;
     position: absolute;
     color: white;
     background: red;
@@ -88,9 +97,31 @@
 
   .status-vivo{
     margin-top: 35px;
-    margin-left: 97px;
+    margin-left: 176px;
     position: absolute;
     color: white;
     background: green;
     border-radius: 2px;
+  }
+
+  .botao-voltar{
+    float: left !important;
+    margin-left: 40px !important;
+    color: #ffffff !important;
+    margin-bottom: 30px !important;
+    box-shadow: 3px 2px 4px rgba(29, 28, 27, 0.67)important;
+    background-color: #312d2a !important;
+  }
+  
+  .botao-proximo{
+    float: right !important;
+    margin-right: 40px !important;
+    margin-bottom: 30px !important;
+    color: #ffffff !important;
+    box-shadow: 3px 2px 4px rgba(29, 28, 27, 0.67)important;
+    background-color: #312d2a !important;
+  }
+
+  .margin-left-35pct{
+      margin-left: 35% !important;
   }

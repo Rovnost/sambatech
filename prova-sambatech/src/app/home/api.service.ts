@@ -10,8 +10,8 @@ export class ApiService{
 
   constructor(private http: Http){}
 
-  pegarPersonagens(): Observable<any>{
-    return this.http.get(`https://www.breakingbadapi.com/api/characters`)
+  pegarPersonagens(valor: number): Observable<any>{
+    return this.http.get(`https://www.breakingbadapi.com/api/characters?limit=10&offset=${valor}`)
     .map(dados => dados.json());
   }
 

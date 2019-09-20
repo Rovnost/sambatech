@@ -13,11 +13,12 @@ export class HomeComponent implements OnInit {
 
   conteudoDiv = [];
   buscaAtiva = false;
+  paginaAtual = 1;
 
   constructor(private pesquisaService: ApiService) { }
 
   ngOnInit() {
-    this.pesquisaService.pegarPersonagens()
+    this.pesquisaService.pegarPersonagens(0)
     .subscribe(dados => this.preencherDiv(dados));
   }
 
@@ -38,6 +39,48 @@ export class HomeComponent implements OnInit {
     console.log(dados);
     this.buscaAtiva = true;
     this.conteudoDiv = dados;
+  }
+
+  proximaPagina(){
+    if(this.paginaAtual == 1){
+      this.pesquisaService.pegarPersonagens(10)
+      .subscribe(dados => this.preencherDiv(dados));
+    }else if(this.paginaAtual == 2){
+      this.pesquisaService.pegarPersonagens(20)
+      .subscribe(dados => this.preencherDiv(dados));
+    }else if(this.paginaAtual == 3){
+      this.pesquisaService.pegarPersonagens(30)
+      .subscribe(dados => this.preencherDiv(dados));
+    }else if(this.paginaAtual == 4){
+      this.pesquisaService.pegarPersonagens(40)
+      .subscribe(dados => this.preencherDiv(dados));
+    }else if(this.paginaAtual == 5){
+      this.pesquisaService.pegarPersonagens(50)
+      .subscribe(dados => this.preencherDiv(dados));
+    }
+    this.paginaAtual = this.paginaAtual + 1;
+    console.log(this.paginaAtual);
+  }
+
+  voltarPagina(){
+  if(this.paginaAtual == 2){
+      this.pesquisaService.pegarPersonagens(0)
+      .subscribe(dados => this.preencherDiv(dados));
+    }else if(this.paginaAtual == 3){
+      this.pesquisaService.pegarPersonagens(10)
+      .subscribe(dados => this.preencherDiv(dados));
+    }else if(this.paginaAtual == 4){
+      this.pesquisaService.pegarPersonagens(20)
+      .subscribe(dados => this.preencherDiv(dados));
+    }else if(this.paginaAtual == 5){
+      this.pesquisaService.pegarPersonagens(30)
+      .subscribe(dados => this.preencherDiv(dados));
+    }else{
+      this.pesquisaService.pegarPersonagens(40)
+      .subscribe(dados => this.preencherDiv(dados));
+    }
+    this.paginaAtual = this.paginaAtual - 1;
+    console.log(this.paginaAtual);
   }
 
 }

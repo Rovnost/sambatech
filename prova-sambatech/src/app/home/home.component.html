@@ -13,7 +13,7 @@
     <div class="card">
       <span *ngIf="personagem.status ==='Alive'" class="color white status-vivo">Vivo</span>
       <span *ngIf="personagem.status ==='Deceased'" class="color white status-morto">Morto</span>
-      <span *ngIf="personagem.status ==='Presumed dead'" class="color white status-morto">Presume-se morto</span>
+      <span *ngIf="personagem.status ==='Presumed dead'" class="color white status-presumesemorto">Presume-se morto</span>
       <img class="img-fluid capaPersonagem" src="{{personagem.img}}" alt="Character Cover Not Available" />
     </div>
     <h4 class="color-white">{{personagem.name}}</h4>
@@ -26,3 +26,9 @@
   </div>
 
 </div>
+
+<div>
+    <button *ngIf="paginaAtual > 1" mat-raised-button (click)="voltarPagina()" class="botao-voltar"><i class="material-icons seta-voltar">arrow_back</i>Anterior</button>
+    <span class="margin-left-35pct color-white"><a>1 </a><a>2 </a><a>3 </a><a>4 </a><a>5 </a><a>6 </a></span>
+    <button *ngIf="paginaAtual != 6" mat-stroked-button (click)="proximaPagina()" class="botao-proximo">Próximo<i class="material-icons seta-proximo">arrow_forward</i></button>
+  </div>
