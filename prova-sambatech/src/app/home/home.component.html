@@ -1,12 +1,13 @@
 <div class="padding-100">
     <img class="logo float-left" src="https://logodownload.org/wp-content/uploads/2017/07/breaking-bad-logo.png" alt="image">
     <form [formGroup]="pesquisaForm" class="pesquisa float-right" name="searchForm">
+        <i class="material-icons pesquisar" (click)="pesquisarPersonagem()">search</i>
         <input type="" (keydown.enter)="pesquisarPersonagem()" formControlName="pesquisa" class="barraPesquisar" placeholder="Pesquise os personagens" ng-model="search" />
       </form>
 </div>
 
 <h3 class="color-white padding-left-100" *ngIf="!buscaAtiva">Personagens</h3>
-<h3 class="color-white padding-left-100" *ngIf="buscaAtiva">Você pesquisou por "{{this.pesquisaForm.value.pesquisa}}"</h3>
+<h3 class="color-white padding-left-100" *ngIf="buscaAtiva">Você pesquisou por "{{pesquisa}}"</h3>
 <h1 *ngIf="semResultados" class="color-white padding-left-100 margin-top-40">Nada foi encontrado :(</h1>
 
 <div class="row property-content padding-div">

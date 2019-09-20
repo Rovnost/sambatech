@@ -150,6 +150,15 @@
     margin-top: 40px !important;
 }
 
+.pesquisar{
+    position: absolute !important;
+    margin-left: 50px !important;
+    margin-top: 13px !important;
+    cursor: pointer !important;
+    color: cornflowerblue !important;
+    font-size: 44px !important;
+}
+
 a {
   cursor: pointer;
 }

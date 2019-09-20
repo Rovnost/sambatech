@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   buscaAtiva = false;
   paginaAtual = 1;
   semResultados = false;
+  pesquisa = "";
 
   constructor(private pesquisaService: ApiService) { }
 
@@ -32,6 +33,7 @@ export class HomeComponent implements OnInit {
   }
 
   pesquisarPersonagem(){
+    this.pesquisa = this.pesquisaForm.value.pesquisa;
     this.pesquisaService.pesquisarPersonagens(this.pesquisaForm.value.pesquisa)
     .subscribe(dados => this.replaceDiv(dados));
   }
@@ -42,6 +44,8 @@ export class HomeComponent implements OnInit {
     this.conteudoDiv = dados;
     if(dados.length === 0){
       this.semResultados = true;
+    }else{
+      this.semResultados = false;
     }
   }
 
