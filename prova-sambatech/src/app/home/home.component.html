@@ -1,12 +1,8 @@
 <div class="padding-100">
-  <div>
-    <img class="logo" src="https://logodownload.org/wp-content/uploads/2017/07/breaking-bad-logo.png" alt="image">
-  </div>
-  <div class="pesquisa">
-    <form [formGroup]="pesquisaForm" name="searchForm">
+    <img class="logo float-left" src="https://logodownload.org/wp-content/uploads/2017/07/breaking-bad-logo.png" alt="image">
+    <form [formGroup]="pesquisaForm" class="pesquisa float-right" name="searchForm">
         <input type="" (keydown.enter)="pesquisarPersonagem()" formControlName="pesquisa" class="barraPesquisar" placeholder="Pesquise os personagens" ng-model="search" />
       </form>
-  </div>
 </div>
 
 <h3 class="color-white padding-left-100" *ngIf="!buscaAtiva">Personagens</h3>
@@ -15,10 +11,13 @@
 <div class="row property-content padding-div">
   <div class="col-sm-6 col-md-4 mt-5 max-width-19" *ngFor="let personagem of conteudoDiv">
     <div class="card">
+      <span *ngIf="personagem.status ==='Alive'" class="color white status-vivo">Vivo</span>
+      <span *ngIf="personagem.status ==='Deceased'" class="color white status-morto">Morto</span>
+      <span *ngIf="personagem.status ==='Presumed dead'" class="color white status-morto">Presume-se morto</span>
       <img class="img-fluid capaPersonagem" src="{{personagem.img}}" alt="Character Cover Not Available" />
     </div>
     <h4 class="color-white">{{personagem.name}}</h4>
-    <span class="color-white">{{personagem.birthday}}</span>
+    <span *ngIf="personagem.birthday !='Unknown'" class="color-white"><i class="material-icons margin-right-10 font-size-12">star</i>{{personagem.birthday}}</span>
     <!-- <div *ngIf="personagem.occupation.lenght > 1">
         <span>{{personagem.occupation[1]}}</span>
     </div> -->
