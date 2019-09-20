@@ -4,3 +4,12 @@
       <input type="" (keydown.enter)="pesquisarPersonagem()" formControlName="pesquisa" class="barraPesquisar" placeholder="Pesquise os personagens" ng-model="search" />
     </form>
 </div>
+
+<div class="row property-content">
+  <div class="col-sm-6 col-md-4 mt-5 max-width-19" *ngFor="let personagem of conteudoDiv">
+    <div class="card">
+      <img (click)="" class="img-fluid capaPersonagem" src="{{personagem.img}}" alt="Character Cover Not Available" />
+    </div>
+  </div>
+
+</div>

@@ -12,7 +12,7 @@ import { FormGroup,FormControl, Validators} from '@angular/forms';
 export class HomeComponent implements OnInit {
 
   conteudoDiv = [];
-
+  
   constructor(private pesquisaService: ApiService) { }
 
   ngOnInit() {
